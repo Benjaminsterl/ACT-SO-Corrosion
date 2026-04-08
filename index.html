@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Corrosion & Cathodic Protection</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap');
+
+:root{
+  --bg:#0b1d26;
+  --steel:#2f3e46;
+  --blue:#1f6f8b;
+  --light:#e8f1f2;
+  --rust:#c06c3c;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:linear-gradient(to bottom,#0b1d26,#102a36);
+  color:var(--light);
+  line-height:1.6;
+}
+
+h1,h2,h3{
+  font-family:'Fraunces',serif;
+  margin-bottom:1rem;
+}
+
+section{
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+section.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  background:#08161d;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  z-index:1000;
+}
+
+nav a{
+  color:var(--light);
+  text-decoration:none;
+  font-size:14px;
+  opacity:.8;
+}
+
+nav a:hover{opacity:1}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-size:3rem;
+}
+
+.hero p{
+  max-width:600px;
+  margin:20px auto;
+  opacity:.8;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.03);
+  padding:20px;
+  border-left:4px solid var(--blue);
+  margin:20px 0;
+}
+
+/* DIAGRAM */
+.diagram{
+  margin:40px 0;
+  text-align:center;
+}
+
+svg{
+  max-width:100%;
+}
+
+/* animation */
+.electron{
+  fill:#ffd166;
+  animation:flow 2s linear infinite;
+}
+
+@keyframes flow{
+  from{transform:translateX(0)}
+  to{transform:translateX(120px)}
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+@media(min-width:700px){
+  .grid{grid-template-columns:1fr 1fr}
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#corrosion">Corrosion</a>
+<a href="#electrochem">Electrochemistry</a>
+<a href="#protection">Protection</a>
+<a href="#cathodic">Cathodic</a>
+<a href="#research">Research</a>
+<a href="#impact">Impact</a>
+</nav>
+
+<div class="hero">
+<h1>Corrosion & Cathodic Protection</h1>
+<p>Why metal rusts, how we stop it, and why zinc anode design actually matters.</p>
+</div>
+
+<section id="corrosion">
+<h2>What Is Corrosion?</h2>
+
+<p>Corrosion is a natural electrochemical process where metals break down over time. At its core, it’s just atoms losing electrons.</p>
+
+<div class="card">
+<strong>Simple idea:</strong> corrosion is metal slowly dissolving back into its natural state.
+</div>
+
+<p>For iron or steel, this means:</p>
+<ul>
+<li>Iron atoms lose electrons (oxidation)</li>
+<li>They react with oxygen and water</li>
+<li>This forms rust (iron oxide)</li>
+</ul>
+
+<p>This isn’t just cosmetic damage. Rust weakens structures.</p>
+
+<div class="card">
+U.S. bridge corrosion costs <strong>$5.9–7.8 billion per year</strong>, and about <strong>25–30% is preventable</strong>.
+</div>
+</section>
+
+<section id="electrochem">
+<h2>The Electrochemistry Behind It</h2>
+
+<div class="grid">
+<div>
+<p><strong>Anode:</strong> where metal loses electrons</p>
+<p><strong>Cathode:</strong> where electrons are received</p>
+<p><strong>Oxidation:</strong> losing electrons</p>
+<p><strong>Reduction:</strong> gaining electrons</p>
+
+<p>Corrosion works like a tiny battery forming on the metal surface.</p>
+
+<p>Saltwater makes this worse because it acts as an <strong>electrolyte</strong>—a material that allows electricity (electron flow) to move easily.</p>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 150">
+<rect x="20" y="50" width="80" height="50" fill="#c06c3c"/>
+<text x="40" y="45" fill="white">Zinc</text>
+
+<rect x="300" y="50" width="80" height="50" fill="#888"/>
+<text x="315" y="45" fill="white">Steel</text>
+
+<circle class="electron" cx="110" cy="75" r="5"/>
+<line x1="100" y1="75" x2="300" y2="75" stroke="white" stroke-dasharray="5,5"/>
+</svg>
+<p style="font-size:12px;opacity:.7;">Electrons flow from zinc → steel</p>
+</div>
+</div>
+</section>
+
+<section id="protection">
+<h2>How We Protect Against Corrosion</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Detection</h3>
+<ul>
+<li>Fiber optic sensors</li>
+<li>Chloride sensors</li>
+<li>Moisture sensors</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Prevention</h3>
+<ul>
+<li>Alloys (chromium, nickel, molybdenum)</li>
+<li>Low-permeability concrete</li>
+<li>Chemical inhibitors</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Protection</h3>
+<ul>
+<li>Cathodic protection (GCP & ICCP)</li>
+<li>Epoxy-coated rebar</li>
+<li>Barrier coatings</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="cathodic">
+<h2>Cathodic Protection Deep Dive</h2>
+
+<p>This method forces steel to act like a cathode so it doesn’t corrode.</p>
+
+<div class="card">
+<strong>Galvanic (GCP):</strong> A more reactive metal (like zinc) corrodes instead of steel.
+</div>
+
+<div class="card">
+<strong>Impressed Current (ICCP):</strong> External power pushes electrons onto the steel.
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 400 150">
+<rect x="20" y="50" width="80" height="50" fill="#c06c3c"/>
+<text x="40" y="45" fill="white">Zinc Anode</text>
+
+<rect x="300" y="50" width="80" height="50" fill="#888"/>
+<text x="305" y="45" fill="white">Rebar</text>
+
+<circle class="electron" cx="110" cy="75" r="5"/>
+<circle class="electron" cx="130" cy="75" r="5" style="animation-delay:.5s"/>
+<line x1="100" y1="75" x2="300" y2="75" stroke="white"/>
+</svg>
+</div>
+
+<p>Used in real structures like:</p>
+<ul>
+<li>Howard Frankland Bridge (FL)</li>
+<li>Long Key Bridge (FL)</li>
+<li>I-35W Saint Anthony Falls Bridge (MN)</li>
+</ul>
+</section>
+
+<section id="research">
+<h2>The Research: Zinc Anode Size Matters</h2>
+
+<p>The key variable studied is <strong>surface-area-to-mass ratio (SA/M)</strong>.</p>
+
+<div class="card">
+Higher SA/M → more surface exposed → more efficient electron flow
+</div>
+
+<ul>
+<li>Smaller diameter zinc → higher SA/M → higher efficiency</li>
+<li>But: smaller anodes wear out faster</li>
+</ul>
+
+<div class="card">
+Example:
+<ul>
+<li>1 mm zinc ≈ ~90% mass loss</li>
+<li>3 mm zinc &lt; 50% mass loss</li>
+</ul>
+</div>
+
+<p><strong>Best result:</strong> 1.5 mm anode minimized rebar corrosion overall.</p>
+
+<p>This shows a clear engineering tradeoff:</p>
+<ul>
+<li>Too small → efficient but short lifespan</li>
+<li>Too large → lasts longer but wastes material</li>
+</ul>
+
+<div class="card">
+Conclusion: “Bigger” is not better. Geometry and SA/M ratio matter.
+</div>
+</section>
+
+<section id="impact">
+<h2>Why This Matters</h2>
+
+<p>Florida infrastructure is especially vulnerable due to salt air and humidity.</p>
+
+<ul>
+<li>Faster corrosion rates</li>
+<li>Higher maintenance costs</li>
+<li>Shorter structure lifespan</li>
+</ul>
+
+<p>Optimizing zinc anode size could:</p>
+<ul>
+<li>Reduce maintenance frequency</li>
+<li>Lower material waste</li>
+<li>Improve long-term durability</li>
+</ul>
+
+<div class="card">
+Future work: refine anode geometry and test long-term real-world performance.
+</div>
+</section>
+
+<footer>
+Content based on Sterling, B. (2026). Experimental corrosion analysis of zinc anode diameter effects on the carbon steel rebar. Preprint.
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+});
+
+sections.forEach(sec=>observer.observe(sec));
+
+// smooth scroll
+document.querySelectorAll("nav a").forEach(a=>{
+  a.addEventListener("click", e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute("href")).scrollIntoView({
+      behavior:"smooth"
+    });
+  });
+});
+</script>
+
+</body>
+</html>
